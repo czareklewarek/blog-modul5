@@ -43,3 +43,23 @@ const links = document.querySelectorAll('.titles a');
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
+
+function generateTitleLinks() {
+  const articles = document.querySelectorAll('.post');
+  const titleList = document.querySelector('.titles');
+
+  for(const article of articles) {
+    const id = article.getAttribute('id');
+    const title = article.querySelector('.post-title').innerHTML;
+
+    titleList.innerHTML = titleList.innerHTML + '<li><a href="#' + id + '"><span>' + title + '</span></a></li>';
+  }
+
+  const links = document.querySelectorAll('.titles a');
+
+  for(let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
+}
+
+generateTitleLinks();
